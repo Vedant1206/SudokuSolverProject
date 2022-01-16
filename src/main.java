@@ -13,10 +13,10 @@ public class main {
     else
       putInput();
 
-
     System.out.println("End of the code");
-
   }
+
+  //Run demo has a sudoku example and will solve this sudoku
   public static void runDemo(){
     int[][] board = {
         {8, 0, 0, 0, 0, 0, 0, 0, 0},
@@ -31,8 +31,13 @@ public class main {
     };
 
     Sudoku game = new Sudoku(board);
-    game.solve();
-    game.print(board);
+    Boolean solve = game.solve();
+    System.out.print(solve);
+    if (solve) {
+      game.print(board);
+    } else {    //Else the sudoku cannot be solved
+      System.out.println("The Sudoku cannot be solved");
+    }
   }
   public static void putInput() throws FileNotFoundException {
     System.out.println("Enter the file name(eg- filename.txt)");
